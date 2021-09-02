@@ -9,6 +9,13 @@
  * Description:
  *   Collection of free-functions, meta-functions, and type-traits that don't
  *   belong to a particular category and are trivial of nature.
+ *
+ * Notes:
+ *   Currently, this library is designed in accordance with the C++17 standard.
+ *   The versioning header being the exception to this, which can be used from
+ *   C++11 and onwards.
+ *
+ *   Expecting to eventually diverge this library into newer C++ versions.
 */
 
 ```

@@ -11,7 +11,7 @@ struct version {
     static constexpr auto cpp14 = 201402L;
     static constexpr auto cpp17 = 201703L;
     static constexpr auto cpp20 = 202002L;
-    static constexpr auto current = __cplusplus + 0;
+    static constexpr auto current = __cplusplus + int{};
 
     template<decltype(current) V>
     using matches = std::integral_constant<bool, V == current>;
@@ -22,28 +22,47 @@ using is_cpp14_compliant = version::matches<version::cpp14>;
 using is_cpp17_compliant = version::matches<version::cpp17>;
 using is_cpp20_compliant = version::matches<version::cpp20>;
 
-inline namespace helpers {
-
 #if defined(__cplusplus) and (__cplusplus >= 201703L)
+    using is_cpp_compliant = std::disjunction<
+        is_cpp11_compliant,
+        is_cpp14_compliant,
+        is_cpp17_compliant,
+        is_cpp20_compliant>;
+
+    inline namespace helpers {
+
     inline constexpr auto is_cpp11_compliant_v = bool{is_cpp11_compliant{}};
     inline constexpr auto is_cpp14_compliant_v = bool{is_cpp14_compliant{}};
     inline constexpr auto is_cpp17_compliant_v = bool{is_cpp17_compliant{}};
     inline constexpr auto is_cpp20_compliant_v = bool{is_cpp20_compliant{}};
+    inline constexpr auto is_cpp_compliant_v   = bool{is_cpp_compliant{}};
+
+    } // namespace helpers
 #else
+    inline namespace helpers {
+
     constexpr auto is_cpp11_compliant_v() noexcept -> bool
-    { return is_cpp11_compliant{}; };
+    { return is_cpp11_compliant{}; }
 
     constexpr auto is_cpp14_compliant_v() noexcept -> bool
-    { return is_cpp14_compliant{}; };
+    { return is_cpp14_compliant{}; }
 
     constexpr auto is_cpp17_compliant_v() noexcept -> bool
-    { return is_cpp17_compliant{}; };
+    { return is_cpp17_compliant{}; }
 
     constexpr auto is_cpp20_compliant_v() noexcept -> bool
-    { return is_cpp20_compliant{}; };
+    { return is_cpp20_compliant{}; }
+
+    constexpr auto is_cpp_compliant_v() noexcept -> bool {
+        return is_cpp11_compliant_v()
+            or is_cpp14_compliant_v()
+            or is_cpp17_compliant_v()
+            or is_cpp20_compliant_v();
+    }
+
+    } // namespace helpers
 #endif
 
-} // namespace helpers
 } // namespace ts
 } // namespace gfl
 

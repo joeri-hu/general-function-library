@@ -9,10 +9,10 @@
 
 inline namespace gfl {
 namespace ts {
-inline namespace promotion {
+inline namespace promotions {
 
 template<typename T>
-using is_promotable = std::is_same<T, promote<T>>;
+using is_promotable = std::negation<std::is_same<T, promote<T>>>;
 
 template<typename... Ts>
 using is_promotable_all = std::conjunction<is_promotable<Ts>...>;
@@ -24,7 +24,7 @@ template<typename... Ts>
 using is_promotable_either = std::disjunction<is_promotable<Ts>...>;
 
 template<typename... Ts>
-using is_promotable_neither = std::negation<is_promotable_either<Ts>...>;
+using is_promotable_neither = std::negation<is_promotable_either<Ts...>>;
 
 inline namespace helpers {
 
@@ -44,8 +44,8 @@ template<typename... Ts>
 inline constexpr auto is_promotable_neither_v = bool{is_promotable_neither<Ts...>{}};
 
 } // namespace helpers
-} // namespace promotion
-inline namespace conversion {
+} // namespace promotions
+inline namespace conversions {
 
 template<typename... Ts>
 using is_converting_all = common_type_matches_neither<Ts...>;
@@ -89,14 +89,14 @@ inline constexpr auto is_converting_rhs_v = bool{is_converting_rhs<T1, T2>{}};
 inline namespace limits {
 
 template<typename From, typename To>
-using is_narrowing = std::bool_constant<(
-    std::numeric_limits<From>::max() > std::numeric_limits<To>::max())>;
+using is_narrowing = std::bool_constant<
+    (std::numeric_limits<From>::max() > std::numeric_limits<To>::max())>;
 
 template<typename From, typename To>
 inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
 
 } // namespace limits
-} // namespace conversion
+} // namespace conversions
 } // namespace ts
 } // namespace gfl
 

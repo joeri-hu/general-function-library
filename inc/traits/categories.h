@@ -11,8 +11,23 @@ template<typename... Ts>
 using is_arithmetic_all = std::conjunction<std::is_arithmetic<Ts>...>;
 
 template<typename... Ts>
+using is_arithmetic_any = std::disjunction<std::is_arithmetic<Ts>...>;
+
+template<typename... Ts>
+using is_arithmetic_none = std::negation<is_arithmetic_any<Ts>...>;
+
+inline namespace helpers {
+
+template<typename... Ts>
 inline constexpr auto is_arithmetic_all_v = bool{is_arithmetic_all<Ts...>{}};
 
+template<typename... Ts>
+inline constexpr auto is_arithmetic_any_v = bool{is_arithmetic_any<Ts...>{}};
+
+template<typename... Ts>
+inline constexpr auto is_arithmetic_none_v = bool{is_arithmetic_none<Ts...>{}};
+
+} // namespace helpers
 } // namespace fundamental
 inline namespace templates {
 

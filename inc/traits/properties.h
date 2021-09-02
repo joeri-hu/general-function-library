@@ -3,5 +3,6 @@
 
 #include <traits/properties/conversions.h>
 #include <traits/properties/ranking.h>
+#include <traits/properties/relations.h>
 
 #endif

@@ -1,9 +1,9 @@
-#ifndef GFL_TRAITS_PROPERTIES_RELATIONS_H
-#define GFL_TRAITS_PROPERTIES_RELATIONS_H
+#ifndef GL_TRAITS_PROPERTIES_RELATIONS_H
+#define GL_TRAITS_PROPERTIES_RELATIONS_H
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts {
 
 template<typename T, typename... Ts>
@@ -35,6 +35,6 @@ inline constexpr auto is_same_none_v = bool{is_same_none<Ts...>{}};
 
 } // namespace helpers
 } // namespace ts
-} // namespace gfl
+} // namespace gl
 
 #endif

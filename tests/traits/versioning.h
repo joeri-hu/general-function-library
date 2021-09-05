@@ -1,9 +1,9 @@
-#ifndef GFL_TESTS_TRAITS_VERSIONING_H
-#define GFL_TESTS_TRAITS_VERSIONING_H
+#ifndef GL_TESTS_TRAITS_VERSIONING_H
+#define GL_TESTS_TRAITS_VERSIONING_H
 
 #include <traits/versioning.h>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts::tests {
 
 #if defined(__cplusplus) and (__cplusplus >= 201703L)
@@ -13,6 +13,6 @@ namespace ts::tests {
 #endif
 
 } // namespace ts::tests
-} // namespace gfl
+} // namespace gl
 
 #endif

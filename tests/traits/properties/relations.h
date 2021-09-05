@@ -1,9 +1,9 @@
-#ifndef GFL_TESTS_TRAITS_PROPERTIES_RELATIONS_H
-#define GFL_TESTS_TRAITS_PROPERTIES_RELATIONS_H
+#ifndef GL_TESTS_TRAITS_PROPERTIES_RELATIONS_H
+#define GL_TESTS_TRAITS_PROPERTIES_RELATIONS_H
 
 #include <traits/properties/relations.h>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts::tests {
 
 static_assert(is_same_all_v<bool, bool, bool>);
@@ -41,6 +41,6 @@ static_assert(not is_same_none_v<bool, char, int, double, int>);
 static_assert(not is_same_none_v<bool, char, double, int, int>);
 
 } // namespace ts::tests
-} // namespace gfl
+} // namespace gl
 
 #endif

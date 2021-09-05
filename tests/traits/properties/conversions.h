@@ -1,11 +1,11 @@
-#ifndef GFL_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
-#define GFL_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
+#ifndef GL_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
+#define GL_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
 
 #include <traits/properties/conversions.h>
 
 #include <cstdint>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts::tests {
 inline namespace promotions {
 
@@ -198,6 +198,6 @@ static_assert(not is_narrowing_v<std::uint64_t, std::uint64_t>);
 } // namespace limits
 } // namespace conversions
 } // namespace ts::tests
-} // namespace gfl
+} // namespace gl
 
 #endif

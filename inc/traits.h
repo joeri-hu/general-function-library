@@ -1,5 +1,5 @@
-#ifndef GFL_TRAITS_H
-#define GFL_TRAITS_H
+#ifndef GL_TRAITS_H
+#define GL_TRAITS_H
 
 #include <traits/categories.h>
 #include <traits/constraints.h>

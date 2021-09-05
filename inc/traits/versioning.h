@@ -1,9 +1,9 @@
-#ifndef GFL_TRAITS_VERSIONING_H
-#define GFL_TRAITS_VERSIONING_H
+#ifndef GL_TRAITS_VERSIONING_H
+#define GL_TRAITS_VERSIONING_H
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts {
 
 struct version {
@@ -30,6 +30,9 @@ using is_cpp20_compliant = version::matches<version::cpp20>;
         is_cpp20_compliant>;
 
     inline namespace helpers {
+
+    inline constexpr auto is_cpp11_compliant_v = bool{version::cpp11::is_current{}};
+
 
     inline constexpr auto is_cpp11_compliant_v = bool{is_cpp11_compliant{}};
     inline constexpr auto is_cpp14_compliant_v = bool{is_cpp14_compliant{}};
@@ -64,6 +67,6 @@ using is_cpp20_compliant = version::matches<version::cpp20>;
 #endif
 
 } // namespace ts
-} // namespace gfl
+} // namespace gl
 
 #endif

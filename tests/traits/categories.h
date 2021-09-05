@@ -1,9 +1,9 @@
-#ifndef GFL_TESTS_TRAITS_CATEGORIES_H
-#define GFL_TESTS_TRAITS_CATEGORIES_H
+#ifndef GL_TESTS_TRAITS_CATEGORIES_H
+#define GL_TESTS_TRAITS_CATEGORIES_H
 
 #include <traits/categories.h>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts::tests {
 inline namespace fundamental {
 
@@ -44,6 +44,6 @@ static_assert(not template_matches_v<template2, template1>);
 
 } // namespace templates
 } // namespace ts::tests
-} // namespace gfl
+} // namespace gl
 
 #endif

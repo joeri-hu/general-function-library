@@ -1,9 +1,9 @@
-#ifndef GFL_TRAITS_PROPERTIES_RANKING_H
-#define GFL_TRAITS_PROPERTIES_RANKING_H
+#ifndef GL_TRAITS_PROPERTIES_RANKING_H
+#define GL_TRAITS_PROPERTIES_RANKING_H
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts {
 namespace internal {
 
@@ -63,6 +63,6 @@ inline constexpr auto common_type_matches_rhs_v
 
 } // namespace helpers
 } // namespace ts
-} // namespace gfl
+} // namespace gl
 
 #endif

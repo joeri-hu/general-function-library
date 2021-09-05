@@ -1,5 +1,5 @@
-#ifndef GFL_TESTS_TRAITS_H
-#define GFL_TESTS_TRAITS_H
+#ifndef GL_TESTS_TRAITS_H
+#define GL_TESTS_TRAITS_H
 
 #include <tests/traits/categories.h>
 #include <tests/traits/constraints.h>

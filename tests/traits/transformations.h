@@ -1,11 +1,11 @@
-#ifndef GFL_TESTS_TRAITS_TRANSFORMATIONS_H
-#define GFL_TESTS_TRAITS_TRANSFORMATIONS_H
+#ifndef GL_TESTS_TRAITS_TRANSFORMATIONS_H
+#define GL_TESTS_TRAITS_TRANSFORMATIONS_H
 
 #include <traits/transformations.h>
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts::tests {
 inline namespace identity {
 
@@ -33,6 +33,6 @@ static_assert(std::is_same_v<promote<long double>, long double>);
 
 } // namespace promotion
 } // namespace ts::tests
-} // namespace gfl
+} // namespace gl
 
 #endif

@@ -1,9 +1,9 @@
-#ifndef GFL_TRAITS_CATEGORIES_H
-#define GFL_TRAITS_CATEGORIES_H
+#ifndef GL_TRAITS_CATEGORIES_H
+#define GL_TRAITS_CATEGORIES_H
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts {
 inline namespace fundamental {
 
@@ -54,6 +54,6 @@ inline constexpr auto template_matches_v = bool{template_matches<Ts...>{}};
 } // namespace helpers
 } // namespace templates
 } // namespace ts
-} // namespace gfl
+} // namespace gl
 
 #endif

@@ -1,11 +1,11 @@
-#ifndef GFL_TRAITS_TRANSFORMATIONS_H
-#define GFL_TRAITS_TRANSFORMATIONS_H
+#ifndef GL_TRAITS_TRANSFORMATIONS_H
+#define GL_TRAITS_TRANSFORMATIONS_H
 
 #include <traits/constraints.h>
 
 #include <type_traits>
 
-inline namespace gfl {
+inline namespace gl {
 namespace ts {
 inline namespace identity {
 
@@ -24,6 +24,6 @@ using promote = decltype(+T{});
 
 } // namespace promotion
 } // namespace ts
-} // namespace gfl
+} // namespace gl
 
 #endif

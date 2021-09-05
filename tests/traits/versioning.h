@@ -4,15 +4,18 @@
 #include <traits/versioning.h>
 
 inline namespace gl {
-namespace ts::tests {
+namespace ts {
+namespace tests {
 
-#if defined(__cplusplus) and (__cplusplus >= 201703L)
-    static_assert(is_cpp_compliant_v);
-#else
-    static_assert(is_cpp_compliant_v(), "");
-#endif
+static_assert(
+    is_cpp11_compliant_v() or
+    is_cpp14_compliant_v() or
+    is_cpp17_compliant_v() or
+    is_cpp20_compliant_v(),
+"");
 
-} // namespace ts::tests
+} // namespace tests
+} // namespace ts
 } // namespace gl
 
 #endif

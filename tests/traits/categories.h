@@ -7,18 +7,18 @@ inline namespace gl {
 namespace ts::tests {
 inline namespace fundamental {
 
-struct not_arithmetic {};
-
 static_assert(is_arithmetic_all_v<
-    bool, char, short, int, long, long long, float, double, long double>);
+    bool, char, short, int, long, long long,
+    float, double, long double>);
 static_assert(not is_arithmetic_all_v<
-    bool, char, short, int, long, long long, float, double, long double,
-    not_arithmetic>);
+    bool, char, short, int, long, long long,
+    float, double, long double,
+    void>);
 
-static_assert(is_arithmetic_any_v<not_arithmetic, int>);
-static_assert(not is_arithmetic_any_v<not_arithmetic>);
+static_assert(is_arithmetic_any_v<void, int>);
+static_assert(not is_arithmetic_any_v<void>);
 
-static_assert(is_arithmetic_none_v<not_arithmetic>);
+static_assert(is_arithmetic_none_v<void>);
 static_assert(not is_arithmetic_none_v<int>);
 
 } // namespace fundamental

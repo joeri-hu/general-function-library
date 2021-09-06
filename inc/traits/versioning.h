@@ -6,7 +6,7 @@
 inline namespace gl {
 namespace ts {
 
-enum class version {
+enum class std_version {
     unknown,
     cpp11 = 201103L,
     cpp14 = 201402L,
@@ -21,10 +21,10 @@ using std_matches = std::integral_constant<bool,
 
 inline namespace helpers {
 
-using is_cpp11_compliant = std_matches<version::cpp11>;
-using is_cpp14_compliant = std_matches<version::cpp14>;
-using is_cpp17_compliant = std_matches<version::cpp17>;
-using is_cpp20_compliant = std_matches<version::cpp20>;
+using is_cpp11_compliant = std_matches<std_version::cpp11>;
+using is_cpp14_compliant = std_matches<std_version::cpp14>;
+using is_cpp17_compliant = std_matches<std_version::cpp17>;
+using is_cpp20_compliant = std_matches<std_version::cpp20>;
 
 constexpr auto is_cpp11_compliant_v() noexcept -> bool
 { return is_cpp11_compliant{}; }

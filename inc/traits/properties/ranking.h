@@ -14,6 +14,7 @@ template<typename T, typename... Ts>
 inline constexpr auto common_type_matches_v = bool{common_type_matches<T, Ts...>{}};
 
 } // namespace internal
+inline namespace interface {
 
 template<typename... Ts>
 using common_type_matches_all
@@ -62,6 +63,7 @@ inline constexpr auto common_type_matches_rhs_v
     = bool{common_type_matches_rhs<T1, T2>{}};
 
 } // namespace helpers
+} // namespace interface
 } // namespace ts
 } // namespace gl
 

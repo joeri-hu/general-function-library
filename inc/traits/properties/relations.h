@@ -7,20 +7,20 @@ inline namespace gl {
 namespace ts {
 
 template<typename T, typename... Ts>
-using is_same_all = std::conjunction<std::is_same<T, Ts>...>;
-
-template<typename...>
-struct is_same_any;
-
-template<typename T1, typename T2>
-struct is_same_any<T1, T2> : std::is_same<T1, T2> {};
+struct is_same_all
+    : std::conjunction<std::is_same<T, Ts>...> {};
 
 template<typename T, typename... Ts>
-struct is_same_any<T, Ts...>
+struct is_same_any
     : std::disjunction<is_same_any<Ts...>, std::is_same<T, Ts>...> {};
 
+template<typename T1, typename T2>
+struct is_same_any<T1, T2>
+    : std::is_same<T1, T2> {};
+
 template<typename... Ts>
-using is_same_none = std::negation<is_same_any<Ts...>>;
+struct is_same_none
+    : std::negation<is_same_any<Ts...>> {};
 
 inline namespace helpers {
 

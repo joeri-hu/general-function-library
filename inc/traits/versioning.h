@@ -15,9 +15,10 @@ enum class std_version {
     current = __cplusplus + unknown
 };
 
-template<version V>
+template<std_version V>
 using std_matches = std::integral_constant<bool,
-    V != version::unknown and V == version::current>;
+    V != std_version::unknown and
+    V == std_version::current>;
 
 inline namespace helpers {
 

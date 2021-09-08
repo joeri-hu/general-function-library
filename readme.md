@@ -16,6 +16,10 @@
  *   C++11 and onwards.
  *
  *   Expecting to eventually diverge this library into newer C++ versions.
+ *
+ * To-do:
+ *   - Changes aliases to distinct types to allow for improved versatility and
+ *     explicit specializations.
 */
 
 ```

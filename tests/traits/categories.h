@@ -30,11 +30,25 @@ struct template1 {};
 template<typename>
 struct template2 {};
 
+template<typename T>
+using alias1 = template1<T>;
+
+template<typename T>
+using alias2 = template2<T>;
+
 static_assert(is_template_of_v<template1, template1<int>>);
+static_assert(is_template_of_v<template1, alias1<int>>);
 static_assert(is_template_of_v<template2, template2<int>>);
+static_assert(is_template_of_v<template2, alias2<int>>);
+static_assert(is_template_of_v<alias1, template1<int>>);
+static_assert(is_template_of_v<alias2, template2<int>>);
 
 static_assert(not is_template_of_v<template1, template2<int>>);
+static_assert(not is_template_of_v<template1, alias2<int>>);
 static_assert(not is_template_of_v<template2, template1<int>>);
+static_assert(not is_template_of_v<template2, alias1<int>>);
+static_assert(not is_template_of_v<alias1, template2<int>>);
+static_assert(not is_template_of_v<alias2, template1<int>>);
 
 static_assert(template_matches_v<template1, template1>);
 static_assert(template_matches_v<template2, template2>);

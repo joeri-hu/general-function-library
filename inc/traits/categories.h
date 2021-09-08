@@ -8,13 +8,13 @@ namespace ts {
 inline namespace fundamental {
 
 template<typename... Ts>
-using is_arithmetic_all = std::conjunction<std::is_arithmetic<Ts>...>;
+struct is_arithmetic_all : std::conjunction<std::is_arithmetic<Ts>...> {};
 
 template<typename... Ts>
-using is_arithmetic_any = std::disjunction<std::is_arithmetic<Ts>...>;
+struct is_arithmetic_any : std::disjunction<std::is_arithmetic<Ts>...> {};
 
 template<typename... Ts>
-using is_arithmetic_none = std::negation<is_arithmetic_any<Ts>...>;
+struct is_arithmetic_none : std::negation<is_arithmetic_any<Ts>...> {};
 
 inline namespace helpers {
 
@@ -36,6 +36,11 @@ struct is_template_of : std::false_type {};
 
 template<template<typename...> typename T, typename... Ts>
 struct is_template_of<T, T<Ts...>> : std::true_type {};
+
+template<
+    template<typename...> typename T1,
+    template<typename...> typename T2, typename... Ts>
+struct is_template_of<T1, T2<Ts...>> : std::is_same<T1<Ts...>, T2<Ts...>> {};
 
 template<template<typename...> typename, template<typename...> typename>
 struct template_matches : std::false_type {};

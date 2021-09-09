@@ -1,11 +1,10 @@
-#ifndef GL_TESTS_TRAITS_CONSTRAINTS_H
-#define GL_TESTS_TRAITS_CONSTRAINTS_H
+#ifndef GL_TS_TESTS_TRAITS_CONSTRAINTS_H
+#define GL_TS_TESTS_TRAITS_CONSTRAINTS_H
 
 #include <traits/constraints.h>
 
 #include <type_traits>
 
-inline namespace gl {
 namespace ts::tests {
 
 static_assert(std::is_same_v<require<std::true_type>, void>);
@@ -22,6 +21,5 @@ static_assert(std::is_same_v<require_neither<
     std::false_type, std::false_type, std::false_type>, void>);
 
 } // namespace ts::tests
-} // namespace gl
 
 #endif

@@ -1,9 +1,8 @@
-#ifndef GL_TRAITS_VERSIONING_H
-#define GL_TRAITS_VERSIONING_H
+#ifndef GL_TS_TRAITS_VERSIONING_H
+#define GL_TS_TRAITS_VERSIONING_H
 
 #include <type_traits>
 
-inline namespace gl {
 namespace ts {
 
 enum class std_version {
@@ -20,7 +19,7 @@ using std_matches = std::integral_constant<bool,
     V != std_version::unknown and
     V == std_version::current>;
 
-inline namespace helpers {
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 
 using is_cpp11_compliant = std_matches<std_version::cpp11>;
 using is_cpp14_compliant = std_matches<std_version::cpp14>;
@@ -39,8 +38,8 @@ constexpr auto is_cpp17_compliant_v() noexcept -> bool
 constexpr auto is_cpp20_compliant_v() noexcept -> bool
 { return is_cpp20_compliant{}; }
 
-} // namespace helpers
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
+
 } // namespace ts
-} // namespace gl
 
 #endif

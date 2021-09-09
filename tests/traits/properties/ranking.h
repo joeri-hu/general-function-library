@@ -1,9 +1,8 @@
-#ifndef GL_TESTS_TRAITS_PROPERTIES_RANKING_H
-#define GL_TESTS_TRAITS_PROPERTIES_RANKING_H
+#ifndef GL_TS_TESTS_TRAITS_PROPERTIES_RANKING_H
+#define GL_TS_TESTS_TRAITS_PROPERTIES_RANKING_H
 
 #include <traits/properties/ranking.h>
 
-inline namespace gl {
 namespace ts::tests {
 
 static_assert(common_type_matches_all_v<bool, bool, bool>);
@@ -83,6 +82,5 @@ static_assert(not common_type_matches_rhs_v<float, int>);
 static_assert(not common_type_matches_rhs_v<long double, double>);
 
 } // namespace ts::tests
-} // namespace gl
 
 #endif

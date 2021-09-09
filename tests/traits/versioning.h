@@ -1,9 +1,8 @@
-#ifndef GL_TESTS_TRAITS_VERSIONING_H
-#define GL_TESTS_TRAITS_VERSIONING_H
+#ifndef GL_TS_TESTS_TRAITS_VERSIONING_H
+#define GL_TS_TESTS_TRAITS_VERSIONING_H
 
 #include <traits/versioning.h>
 
-inline namespace gl {
 namespace ts {
 namespace tests {
 
@@ -16,6 +15,5 @@ static_assert(
 
 } // namespace tests
 } // namespace ts
-} // namespace gl
 
 #endif

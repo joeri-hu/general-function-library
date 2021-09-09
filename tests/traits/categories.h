@@ -1,11 +1,11 @@
-#ifndef GL_TESTS_TRAITS_CATEGORIES_H
-#define GL_TESTS_TRAITS_CATEGORIES_H
+#ifndef GL_TS_TESTS_TRAITS_CATEGORIES_H
+#define GL_TS_TESTS_TRAITS_CATEGORIES_H
 
 #include <traits/categories.h>
 
-inline namespace gl {
 namespace ts::tests {
-inline namespace fundamental {
+
+//////////////////////// fundamental >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_arithmetic_all_v<
     bool, char, short, int, long, long long,
@@ -21,8 +21,8 @@ static_assert(not is_arithmetic_any_v<void>);
 static_assert(is_arithmetic_none_v<void>);
 static_assert(not is_arithmetic_none_v<int>);
 
-} // namespace fundamental
-inline namespace templates {
+//////////////////////// fundamental <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// templates >>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename>
 struct template1 {};
@@ -56,8 +56,8 @@ static_assert(template_matches_v<template2, template2>);
 static_assert(not template_matches_v<template1, template2>);
 static_assert(not template_matches_v<template2, template1>);
 
-} // namespace templates
+//////////////////////// templates <<<<<<<<<<<<<<<<<<<<<<<<
+
 } // namespace ts::tests
-} // namespace gl
 
 #endif

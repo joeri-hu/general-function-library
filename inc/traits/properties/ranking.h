@@ -1,9 +1,8 @@
-#ifndef GL_TRAITS_PROPERTIES_RANKING_H
-#define GL_TRAITS_PROPERTIES_RANKING_H
+#ifndef GL_TS_TRAITS_PROPERTIES_RANKING_H
+#define GL_TS_TRAITS_PROPERTIES_RANKING_H
 
 #include <type_traits>
 
-inline namespace gl {
 namespace ts {
 namespace internal {
 
@@ -14,7 +13,8 @@ template<typename T, typename... Ts>
 inline constexpr auto common_type_matches_v = bool{common_type_matches<T, Ts...>{}};
 
 } // namespace internal
-inline namespace interface {
+
+//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 using common_type_matches_all
@@ -36,7 +36,7 @@ using common_type_matches_lhs = internal::common_type_matches<T1, T1, T2>;
 template<typename T1, typename T2>
 using common_type_matches_rhs = internal::common_type_matches<T2, T1, T2>;
 
-inline namespace helpers {
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto common_type_matches_all_v
@@ -62,9 +62,9 @@ template<typename T1, typename T2>
 inline constexpr auto common_type_matches_rhs_v
     = bool{common_type_matches_rhs<T1, T2>{}};
 
-} // namespace helpers
-} // namespace interface
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<
+
 } // namespace ts
-} // namespace gl
 
 #endif

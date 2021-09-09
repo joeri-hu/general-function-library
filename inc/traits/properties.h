@@ -1,5 +1,5 @@
-#ifndef GL_TRAITS_PROPERTIES_H
-#define GL_TRAITS_PROPERTIES_H
+#ifndef GL_TS_TRAITS_PROPERTIES_H
+#define GL_TS_TRAITS_PROPERTIES_H
 
 #include <traits/properties/conversions.h>
 #include <traits/properties/ranking.h>

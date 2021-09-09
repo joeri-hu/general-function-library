@@ -1,9 +1,8 @@
-#ifndef GL_TRAITS_CONSTRAINTS_H
-#define GL_TRAITS_CONSTRAINTS_H
+#ifndef GL_TS_TRAITS_CONSTRAINTS_H
+#define GL_TS_TRAITS_CONSTRAINTS_H
 
 #include <type_traits>
 
-inline namespace gl {
 namespace ts {
 
 template<typename T>
@@ -25,6 +24,5 @@ template<typename... Ts>
 using require_neither = require_not<std::disjunction<Ts...>>;
 
 } // namespace ts
-} // namespace gl
 
 #endif

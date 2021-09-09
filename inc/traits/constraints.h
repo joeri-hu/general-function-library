@@ -6,22 +6,22 @@
 namespace ts {
 
 template<typename T>
-using require = std::enable_if_t<T{}>;
+struct require : std::enable_if_t<T{}> {};
 
 template<typename T>
-using require_not = require<std::negation<T>>;
+struct require_not : require<std::negation<T>> {};
 
 template<typename... Ts>
-using require_all = require<std::conjunction<Ts...>>;
+struct require_all : require<std::conjunction<Ts...>> {};
 
 template<typename T1, typename T2>
-using require_both = require_all<T1, T2>;
+struct require_both : require_all<T1, T2> {};
 
 template<typename... Ts>
-using require_either = require<std::disjunction<Ts...>>;
+struct require_either : require<std::disjunction<Ts...>> {};
 
 template<typename... Ts>
-using require_neither = require_not<std::disjunction<Ts...>>;
+struct require_neither : require_not<std::disjunction<Ts...>> {};
 
 } // namespace ts
 

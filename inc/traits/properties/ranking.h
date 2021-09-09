@@ -7,34 +7,40 @@ namespace ts {
 namespace internal {
 
 template<typename T, typename... Ts>
-using common_type_matches = std::is_same<T, std::common_type_t<Ts...>>;
+struct common_type_matches
+    : std::is_same<T, std::common_type_t<Ts...>> {};
 
 template<typename T, typename... Ts>
-inline constexpr auto common_type_matches_v = bool{common_type_matches<T, Ts...>{}};
+inline constexpr auto common_type_matches_v
+    = bool{common_type_matches<T, Ts...>{}};
 
 } // namespace internal
 
 //////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
-using common_type_matches_all
-    = std::conjunction<internal::common_type_matches<Ts, Ts...>...>;
+struct common_type_matches_all
+    : std::conjunction<internal::common_type_matches<Ts, Ts...>...> {};
 
 template<typename T1, typename T2>
-using common_type_matches_both = common_type_matches_all<T1, T2>;
+struct common_type_matches_both
+    : common_type_matches_all<T1, T2> {};
 
 template<typename... Ts>
-using common_type_matches_either
-    = std::disjunction<internal::common_type_matches<Ts, Ts...>...>;
+struct common_type_matches_either
+    : std::disjunction<internal::common_type_matches<Ts, Ts...>...> {};
 
 template<typename... Ts>
-using common_type_matches_neither = std::negation<common_type_matches_either<Ts...>>;
+struct common_type_matches_neither
+    : std::negation<common_type_matches_either<Ts...>> {};
 
 template<typename T1, typename T2>
-using common_type_matches_lhs = internal::common_type_matches<T1, T1, T2>;
+struct common_type_matches_lhs
+    : internal::common_type_matches<T1, T1, T2> {};
 
 template<typename T1, typename T2>
-using common_type_matches_rhs = internal::common_type_matches<T2, T1, T2>;
+struct common_type_matches_rhs
+    : internal::common_type_matches<T2, T1, T2> {};
 
 //////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 

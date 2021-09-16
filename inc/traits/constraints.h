@@ -5,23 +5,51 @@
 
 namespace ts {
 
-template<typename T>
-using require = std::enable_if_t<T{}>;
+template<typename B, typename T = void>
+using require = std::enable_if_t<B{}, T>;
 
-template<typename T>
-using require_not = require<std::negation<T>>;
+template<typename B, typename T = void>
+using require_not = require<std::negation<B, T>>;
 
-template<typename... Ts>
-using require_all = require<std::conjunction<Ts...>>;
+template<typename... Bs>
+using require_all = require<std::conjunction<Bs...>>;
 
-template<typename T1, typename T2>
-using require_both = require_all<T1, T2>;
+template<typename B1, typename B2, typename T = void>
+using require_both = require<std::conjunction<B1, B2>, T>;
 
-template<typename... Ts>
-using require_either = require<std::disjunction<Ts...>>;
+template<typename... Bs>
+using require_either = require<std::disjunction<Bs...>>;
 
-template<typename... Ts>
-using require_neither = require_not<std::disjunction<Ts...>>;
+template<typename... Bs>
+using require_neither = require_not<std::disjunction<Bs...>>;
+
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
+
+namespace internal {
+
+using templ_t = int;
+
+} // namespace internal
+
+template<typename B>
+using require_t = require<B, internal::templ_t>;
+
+template<typename B>
+using require_not_t = require_not<B, internal::templ_t>;
+
+template<typename... Bs>
+using require_all_t = require<std::conjunction<Bs...>, T>;
+
+template<typename B1, typename B2>
+using require_both_t = require_both<B1, B2, internal::templ_t>;
+
+template<typename... Bs>
+using require_either_t = require<std::disjunction<Bs...>, internal::templ_t>;
+
+template<typename... Bs>
+using require_neither_t = require_not<std::disjunction<Bs...>, internal::templ_t>;
+
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
 
 } // namespace ts
 

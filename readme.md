@@ -16,6 +16,10 @@
  *   C++11 and onwards.
  *
  *   Expecting to eventually diverge this library into newer C++ versions.
+ *
+ * To-do:
+ *   - Add missing tests of 'properties'
+ *   - Add more tests to incomplete set of 'constraints'
 */
 
 ```

@@ -7,6 +7,8 @@
 
 namespace ts::tests {
 
+// note: add more tests
+
 static_assert(std::is_same_v<require<std::true_type>, void>);
 static_assert(std::is_same_v<require_not<std::false_type>, void>);
 

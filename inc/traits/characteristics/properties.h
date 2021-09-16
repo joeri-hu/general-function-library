@@ -48,7 +48,7 @@ template<typename... Ts>
 struct is_unsigned_none
     : std::negation<is_unsigned_any<Ts...>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_unsigned_all_v = bool{is_unsigned_all<Ts...>{}};

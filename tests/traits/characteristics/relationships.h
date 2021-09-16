@@ -1,7 +1,7 @@
-#ifndef GL_TS_TESTS_TRAITS_CHARACTERISTICS_RELATIONS_H
-#define GL_TS_TESTS_TRAITS_CHARACTERISTICS_RELATIONS_H
+#ifndef GL_TS_TESTS_TRAITS_CHARACTERISTICS_RELATIONSHIPS_H
+#define GL_TS_TESTS_TRAITS_CHARACTERISTICS_RELATIONSHIPS_H
 
-#include <traits/characteristics/relations.h>
+#include <traits/characteristics/relationships.h>
 
 namespace ts::tests {
 

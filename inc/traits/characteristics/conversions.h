@@ -2,7 +2,7 @@
 #define GL_TS_TRAITS_PROPERTIES_CONVERSIONS_H
 
 #include <traits/transformations.h>
-#include <traits/properties/ranking.h>
+#include <traits/characteristics/ranking.h>
 
 #include <limits>
 #include <type_traits>

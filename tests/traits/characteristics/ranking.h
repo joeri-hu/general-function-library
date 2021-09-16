@@ -1,7 +1,7 @@
-#ifndef GL_TS_TESTS_TRAITS_PROPERTIES_RANKING_H
-#define GL_TS_TESTS_TRAITS_PROPERTIES_RANKING_H
+#ifndef GL_TS_TESTS_TRAITS_CHARACTERISTICS_RANKING_H
+#define GL_TS_TESTS_TRAITS_CHARACTERISTICS_RANKING_H
 
-#include <traits/properties/ranking.h>
+#include <traits/characteristics/ranking.h>
 
 namespace ts::tests {
 

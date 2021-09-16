@@ -1,7 +1,7 @@
-#ifndef GL_TS_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
-#define GL_TS_TESTS_TRAITS_PROPERTIES_CONVERSIONS_H
+#ifndef GL_TS_TESTS_TRAITS_CHARACTERISTICS_CONVERSIONS_H
+#define GL_TS_TESTS_TRAITS_CHARACTERISTICS_CONVERSIONS_H
 
-#include <traits/properties/conversions.h>
+#include <traits/characteristics/conversions.h>
 
 #include <cstdint>
 

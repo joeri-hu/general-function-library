@@ -4,7 +4,6 @@
 #include <traits/transformations.h>
 #include <traits/characteristics/ranking.h>
 
-#include <limits>
 #include <type_traits>
 
 namespace ts {
@@ -61,18 +60,33 @@ template<typename T1, typename T2>
 inline constexpr auto is_converting_rhs_v
     = bool{is_converting_rhs<T1, T2>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// limits >>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// narrowing >>>>>>>>>>>>>>>>>>>>>>>>>
+
+namespace internal {
+
+// adaptation from proposal P0870R2
+template<typename From, typename To>
+using require_no_narrowing
+    = std::void_t<decltype(ts::type_id_t<To[]>{std::declval<From>()})>;
+
+} // namespace internal
+
+template<typename From, typename To, typename = void>
+struct is_narrowing : std::true_type {};
 
 template<typename From, typename To>
-struct is_narrowing : std::bool_constant<
-    (std::numeric_limits<From>::max() > std::numeric_limits<To>::max())> {};
+struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
+    : std::false_type {};
+
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To>
 inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
 
-//////////////////////// limits <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// narrowing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 //////////////////////// promotions >>>>>>>>>>>>>>>>>>>>>>>>>
 

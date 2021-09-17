@@ -15,9 +15,9 @@ enum class std_version {
 };
 
 template<std_version V>
-using std_matches = std::integral_constant<bool,
+struct std_matches : std::integral_constant<bool,
     V != std_version::unknown and
-    V == std_version::current>;
+    V == std_version::current> {};
 
 //////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 

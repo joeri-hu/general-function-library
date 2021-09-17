@@ -68,7 +68,7 @@ namespace internal {
 // adaptation from proposal P0870R2
 template<typename From, typename To>
 using require_no_narrowing
-    = std::void_t<decltype(ts::type_id_t<To[]>{std::declval<From>()})>;
+    = std::void_t<decltype(type_id_t<To[]>{std::declval<From>()})>;
 
 } // namespace internal
 

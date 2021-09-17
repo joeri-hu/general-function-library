@@ -18,8 +18,9 @@
  *   Expecting to eventually diverge this library into newer C++ versions.
  *
  * To-do:
- *   - Add missing tests of 'properties'
- *   - Add more tests to incomplete set of 'constraints'
+ *   - Add missing tests of 'traits/properties'
+ *   - Add more tests to incomplete set of 'traits/constraints'
+ *   - Add tests of 'utils/limits'
 */
 
 ```

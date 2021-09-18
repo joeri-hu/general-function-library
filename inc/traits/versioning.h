@@ -39,7 +39,6 @@ constexpr auto is_cpp20_compliant_v() noexcept -> bool
 { return is_cpp20_compliant{}; }
 
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts
 
 #endif

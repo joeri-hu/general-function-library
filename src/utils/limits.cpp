@@ -1,5 +1,4 @@
 #include <utils/limits.h>
-
 #include <traits/categories.h>
 #include <traits/characteristics/conversions.h>
 #include <traits/characteristics/properties.h>
@@ -9,8 +8,7 @@
 #include <type_traits>
 
 namespace gl {
-
-//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To, typename>
 constexpr auto conversion_truncates(From src) noexcept -> bool
@@ -19,16 +17,14 @@ constexpr auto conversion_truncates(From src) noexcept -> bool
 template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool {
     if constexpr (ts::is_narrowing_v<From, To>) {
-        return internal::is_out_of_range<From, To>(src);
+        return impl::is_out_of_range<From, To>(src);
     }
     return false;
 }
 
-//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<
-
-namespace internal {
-
-//////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+namespace impl {
+//////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
     ts::require_t<ts::is_integral_all<From, To>>,
@@ -82,6 +78,5 @@ constexpr auto is_out_of_range(From) noexcept -> bool
 { return false; }
 
 //////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
-
-} // namespace internal
+} // namespace impl
 } // namespace gl

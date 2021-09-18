@@ -4,7 +4,6 @@
 #include <type_traits>
 
 namespace ts {
-
 //////////////////////// specifiers >>>>>>>>>>>>>>>>>>>>>>>>
 //////////////////////// signed >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -33,7 +32,6 @@ inline constexpr auto is_signed_none_v = bool{is_signed_none<Ts...>{}};
 
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// signed <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 //////////////////////// unsigned >>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
@@ -48,7 +46,7 @@ template<typename... Ts>
 struct is_unsigned_none
     : std::negation<is_unsigned_any<Ts...>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_unsigned_all_v = bool{is_unsigned_all<Ts...>{}};
@@ -62,7 +60,6 @@ inline constexpr auto is_unsigned_none_v = bool{is_unsigned_none<Ts...>{}};
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// unsigned <<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// specifiers <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts
 
 #endif

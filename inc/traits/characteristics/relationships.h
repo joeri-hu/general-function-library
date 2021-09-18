@@ -33,7 +33,6 @@ template<typename... Ts>
 inline constexpr auto is_same_none_v = bool{is_same_none<Ts...>{}};
 
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts
 
 #endif

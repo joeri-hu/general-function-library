@@ -6,8 +6,7 @@
 #include <type_traits>
 
 namespace ts {
-
-//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
 struct type_id
@@ -23,7 +22,6 @@ template<typename T, typename = require<std::is_arithmetic<T>>>
 using promote = decltype(+T{});
 
 //////////////////////// promotion <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts
 
 #endif

@@ -7,7 +7,6 @@
 #include <type_traits>
 
 namespace ts {
-
 //////////////////////// conversions >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
@@ -34,7 +33,7 @@ template<typename T1, typename T2>
 struct is_converting_rhs
     : std::negation<common_type_matches_rhs<T1, T2>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_converting_all_v
@@ -60,34 +59,8 @@ template<typename T1, typename T2>
 inline constexpr auto is_converting_rhs_v
     = bool{is_converting_rhs<T1, T2>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// narrowing >>>>>>>>>>>>>>>>>>>>>>>>>
-
-namespace internal {
-
-// adaptation from proposal P0870R2
-template<typename From, typename To>
-using require_no_narrowing
-    = std::void_t<decltype(type_id_t<To[]>{std::declval<From>()})>;
-
-} // namespace internal
-
-template<typename From, typename To, typename = void>
-struct is_narrowing : std::true_type {};
-
-template<typename From, typename To>
-struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
-    : std::false_type {};
-
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-template<typename From, typename To>
-inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
-
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// narrowing <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<<<<
-
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// promotions >>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
@@ -110,7 +83,7 @@ template<typename... Ts>
 struct is_promotable_neither
     : std::negation<is_promotable_either<Ts...>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
 inline constexpr auto is_promotable_v
@@ -132,9 +105,32 @@ template<typename... Ts>
 inline constexpr auto is_promotable_neither_v
     = bool{is_promotable_neither<Ts...>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// promotions <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// promotions <<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision >>>>>>>>>>>>>>>>>>>>>>>>>>
+namespace impl {
 
+// adaptation from proposal P0870R2
+template<typename From, typename To>
+using require_no_narrowing
+    = std::void_t<decltype(type_id_t<To[]>{std::declval<From>()})>;
+
+} // namespace impl
+
+template<typename From, typename To, typename = void>
+struct is_narrowing : std::true_type {};
+
+template<typename From, typename To>
+struct is_narrowing<From, To, impl::require_no_narrowing<From, To>>
+    : std::false_type {};
+
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+template<typename From, typename To>
+inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
+
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision <<<<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

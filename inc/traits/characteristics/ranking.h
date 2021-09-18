@@ -4,7 +4,7 @@
 #include <type_traits>
 
 namespace ts {
-namespace internal {
+namespace impl {
 
 template<typename T, typename... Ts>
 struct common_type_matches
@@ -14,13 +14,12 @@ template<typename T, typename... Ts>
 inline constexpr auto common_type_matches_v
     = bool{common_type_matches<T, Ts...>{}};
 
-} // namespace internal
-
+} // namespace impl
 //////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct common_type_matches_all
-    : std::conjunction<internal::common_type_matches<Ts, Ts...>...> {};
+    : std::conjunction<impl::common_type_matches<Ts, Ts...>...> {};
 
 template<typename T1, typename T2>
 struct common_type_matches_both
@@ -28,7 +27,7 @@ struct common_type_matches_both
 
 template<typename... Ts>
 struct common_type_matches_either
-    : std::disjunction<internal::common_type_matches<Ts, Ts...>...> {};
+    : std::disjunction<impl::common_type_matches<Ts, Ts...>...> {};
 
 template<typename... Ts>
 struct common_type_matches_neither
@@ -36,13 +35,13 @@ struct common_type_matches_neither
 
 template<typename T1, typename T2>
 struct common_type_matches_lhs
-    : internal::common_type_matches<T1, T1, T2> {};
+    : impl::common_type_matches<T1, T1, T2> {};
 
 template<typename T1, typename T2>
 struct common_type_matches_rhs
-    : internal::common_type_matches<T2, T1, T2> {};
+    : impl::common_type_matches<T2, T1, T2> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto common_type_matches_all_v
@@ -70,7 +69,6 @@ inline constexpr auto common_type_matches_rhs_v
 
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts
 
 #endif

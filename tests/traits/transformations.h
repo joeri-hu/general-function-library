@@ -6,8 +6,7 @@
 #include <type_traits>
 
 namespace ts::tests {
-
-//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
 constexpr auto deduce_last_argument(type_id_t<T>, T) noexcept -> T;
@@ -32,7 +31,6 @@ static_assert(std::is_same_v<promote<double>, double>);
 static_assert(std::is_same_v<promote<long double>, long double>);
 
 //////////////////////// promotion <<<<<<<<<<<<<<<<<<<<<<<<
-
 } // namespace ts::tests
 
 #endif

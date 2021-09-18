@@ -1,9 +1,47 @@
-#ifndef GL_TS_TESTS_TRAITS_CHARACTERISTICS_RANKING_H
-#define GL_TS_TESTS_TRAITS_CHARACTERISTICS_RANKING_H
+#ifndef GL_TS_TESTS_TRAITS_RELATIONAL_RELATIONSHIPS_H
+#define GL_TS_TESTS_TRAITS_RELATIONAL_RELATIONSHIPS_H
 
-#include <traits/characteristics/ranking.h>
+#include <traits/relational/relationships.h>
 
 namespace ts::tests {
+//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>>>
+
+static_assert(is_same_all_v<bool, bool, bool>);
+static_assert(is_same_all_v<char, char, char>);
+static_assert(is_same_all_v<int, int, int>);
+static_assert(is_same_all_v<double, double, double>);
+
+static_assert(not is_same_all_v<bool, bool, char>);
+static_assert(not is_same_all_v<char, char, bool>);
+static_assert(not is_same_all_v<int, int, double>);
+static_assert(not is_same_all_v<double, double, bool>);
+
+static_assert(is_same_either_v<int, int, bool, char, double>);
+static_assert(is_same_either_v<int, bool, int, char, double>);
+static_assert(is_same_either_v<int, bool, char, int, double>);
+static_assert(is_same_either_v<int, bool, char, double, int>);
+
+static_assert(is_same_either_v<int, bool, char, double, int>);
+static_assert(is_same_either_v<bool, int, char, double, int>);
+static_assert(is_same_either_v<bool, char, int, double, int>);
+static_assert(is_same_either_v<bool, char, double, int, int>);
+
+static_assert(not is_same_either_v<bool, char, int, double>);
+
+static_assert(is_same_neither_v<bool, char, int, double>);
+
+static_assert(not is_same_neither_v<int, int, bool, char, double>);
+static_assert(not is_same_neither_v<int, bool, int, char, double>);
+static_assert(not is_same_neither_v<int, bool, char, int, double>);
+static_assert(not is_same_neither_v<int, bool, char, double, int>);
+
+static_assert(not is_same_neither_v<int, bool, char, double, int>);
+static_assert(not is_same_neither_v<bool, int, char, double, int>);
+static_assert(not is_same_neither_v<bool, char, int, double, int>);
+static_assert(not is_same_neither_v<bool, char, double, int, int>);
+
+//////////////////////// identity <<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversion >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(common_type_matches_all_v<bool, bool, bool>);
 static_assert(common_type_matches_all_v<char, char, char>);
@@ -81,6 +119,7 @@ static_assert(not common_type_matches_rhs_v<long, char>);
 static_assert(not common_type_matches_rhs_v<float, int>);
 static_assert(not common_type_matches_rhs_v<long double, double>);
 
+//////////////////////// conversion <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts::tests
 
 #endif

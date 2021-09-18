@@ -1,9 +1,46 @@
-#ifndef GL_TS_TRAITS_CHARACTERISTICS_RANKING_H
-#define GL_TS_TRAITS_CHARACTERISTICS_RANKING_H
+#ifndef GL_TS_TRAITS_RELATIONAL_RELATIONSHIPS_H
+#define GL_TS_TRAITS_RELATIONAL_RELATIONSHIPS_H
 
 #include <type_traits>
 
 namespace ts {
+//////////////////////// identity >>>>>>>>>>>>>>>>>>>>>>>>>>
+
+template<typename T, typename... Ts>
+struct is_same_all
+    : std::conjunction<std::is_same<T, Ts>...> {};
+
+template<typename T, typename... Ts>
+struct is_same_either
+    : std::disjunction<
+        is_same_either<Ts...>,
+        std::is_same<T, Ts>...> {};
+
+template<typename T1, typename T2>
+struct is_same_either<T1, T2>
+    : std::is_same<T1, T2> {};
+
+template<typename... Ts>
+struct is_same_neither
+    : std::negation<is_same_either<Ts...>> {};
+
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+template<typename T, typename... Ts>
+inline constexpr auto is_same_all_v
+    = bool{is_same_all<T, Ts...>{}};
+
+template<typename... Ts>
+inline constexpr auto is_same_either_v
+    = bool{is_same_either<Ts...>{}};
+
+template<typename... Ts>
+inline constexpr auto is_same_neither_v
+    = bool{is_same_neither<Ts...>{}};
+
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// identity <<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversion >>>>>>>>>>>>>>>>>>>>>>>>
 namespace impl {
 
 template<typename T, typename... Ts>
@@ -15,7 +52,6 @@ inline constexpr auto common_type_matches_v
     = bool{common_type_matches<T, Ts...>{}};
 
 } // namespace impl
-//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct common_type_matches_all
@@ -41,7 +77,7 @@ template<typename T1, typename T2>
 struct common_type_matches_rhs
     : impl::common_type_matches<T2, T1, T2> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto common_type_matches_all_v
@@ -67,8 +103,8 @@ template<typename T1, typename T2>
 inline constexpr auto common_type_matches_rhs_v
     = bool{common_type_matches_rhs<T1, T2>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversion <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

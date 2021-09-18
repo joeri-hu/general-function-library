@@ -15,16 +15,18 @@ static_assert(not is_arithmetic_all_v<
     float, double, long double,
     void>);
 
-static_assert(is_arithmetic_any_v<void, int>);
-static_assert(not is_arithmetic_any_v<void>);
+// note: add tests for _both
 
-static_assert(is_arithmetic_none_v<void>);
-static_assert(not is_arithmetic_none_v<int>);
+static_assert(is_arithmetic_either_v<void, int>);
+static_assert(not is_arithmetic_either_v<void>);
+
+static_assert(is_arithmetic_neither_v<void>);
+static_assert(not is_arithmetic_neither_v<int>);
 
 //////////////////////// arithmetic <<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-// note: add integral tests
+// note: add tests
 
 //////////////////////// integral <<<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// fundamental <<<<<<<<<<<<<<<<<<<<<<<<

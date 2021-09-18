@@ -1,8 +1,8 @@
 #include <utils/limits.h>
 #include <traits/categories.h>
-#include <traits/characteristics/conversions.h>
-#include <traits/characteristics/properties.h>
 #include <traits/constraints.h>
+#include <traits/properties.h>
+#include <traits/relational/conversions.h>
 
 #include <limits>
 #include <type_traits>
@@ -27,10 +27,10 @@ namespace impl {
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
-    ts::require_t<ts::is_integral_all<From, To>>,
+    ts::require_t<ts::is_integral_both<From, To>>,
     ts::require_either_t<
-        ts::is_signed_all<From, To>,
-        ts::is_unsigned_all<From, To>>>
+        ts::is_signed_both<From, To>,
+        ts::is_unsigned_both<From, To>>>
 constexpr auto is_out_of_range(From src) noexcept -> bool
 { return conversion_truncates<From, To>(src); }
 

@@ -1,8 +1,8 @@
-#ifndef GL_TS_TRAITS_PROPERTIES_CONVERSIONS_H
-#define GL_TS_TRAITS_PROPERTIES_CONVERSIONS_H
+#ifndef GL_TS_TRAITS_RELATIONAL_CONVERSIONS_H
+#define GL_TS_TRAITS_RELATIONAL_CONVERSIONS_H
 
+#include <traits/relational/relationships.h>
 #include <traits/transformations.h>
-#include <traits/characteristics/ranking.h>
 
 #include <type_traits>
 

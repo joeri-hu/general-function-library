@@ -21,6 +21,7 @@
  *   - Add missing tests of 'traits/properties'
  *   - Add more tests to incomplete set of 'traits/constraints'
  *   - Add tests of 'utils/limits'
+ *   - Add tests of 'traits/transformations -- signatures'
 */
 
 ```

@@ -24,29 +24,29 @@ template<typename... Bs>
 using require_neither = require_not<std::disjunction<Bs...>>;
 
 //////////////////////// types >>>>>>>>>>>>>>>>>>>>>>>>
-namespace impl {
+namespace internal {
 
 using tpl_type = int;
 
-} // namespace impl
+} // namespace internal
 
 template<typename B>
-using require_t = require<B, impl::tpl_type>;
+using require_t = require<B, internal::tpl_type>;
 
 template<typename B>
-using require_not_t = require_not<B, impl::tpl_type>;
+using require_not_t = require_not<B, internal::tpl_type>;
 
 template<typename... Bs>
 using require_all_t = require<std::conjunction<Bs...>, T>;
 
 template<typename B1, typename B2>
-using require_both_t = require_both<B1, B2, impl::tpl_type>;
+using require_both_t = require_both<B1, B2, internal::tpl_type>;
 
 template<typename... Bs>
-using require_either_t = require<std::disjunction<Bs...>, impl::tpl_type>;
+using require_either_t = require<std::disjunction<Bs...>, internal::tpl_type>;
 
 template<typename... Bs>
-using require_neither_t = require_not<std::disjunction<Bs...>, impl::tpl_type>;
+using require_neither_t = require_not<std::disjunction<Bs...>, internal::tpl_type>;
 
 //////////////////////// types <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts

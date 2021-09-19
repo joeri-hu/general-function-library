@@ -41,7 +41,7 @@ inline constexpr auto is_same_neither_v
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// identity <<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// conversion >>>>>>>>>>>>>>>>>>>>>>>>
-namespace impl {
+namespace internal {
 
 template<typename T, typename... Ts>
 struct common_type_matches
@@ -51,11 +51,11 @@ template<typename T, typename... Ts>
 inline constexpr auto common_type_matches_v
     = bool{common_type_matches<T, Ts...>{}};
 
-} // namespace impl
+} // namespace internal
 
 template<typename... Ts>
 struct common_type_matches_all
-    : std::conjunction<impl::common_type_matches<Ts, Ts...>...> {};
+    : std::conjunction<internal::common_type_matches<Ts, Ts...>...> {};
 
 template<typename T1, typename T2>
 struct common_type_matches_both
@@ -63,7 +63,7 @@ struct common_type_matches_both
 
 template<typename... Ts>
 struct common_type_matches_either
-    : std::disjunction<impl::common_type_matches<Ts, Ts...>...> {};
+    : std::disjunction<internal::common_type_matches<Ts, Ts...>...> {};
 
 template<typename... Ts>
 struct common_type_matches_neither
@@ -71,11 +71,11 @@ struct common_type_matches_neither
 
 template<typename T1, typename T2>
 struct common_type_matches_lhs
-    : impl::common_type_matches<T1, T1, T2> {};
+    : internal::common_type_matches<T1, T1, T2> {};
 
 template<typename T1, typename T2>
 struct common_type_matches_rhs
-    : impl::common_type_matches<T2, T1, T2> {};
+    : internal::common_type_matches<T2, T1, T2> {};
 
 //////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>
 

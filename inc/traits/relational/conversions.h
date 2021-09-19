@@ -108,20 +108,20 @@ inline constexpr auto is_promotable_neither_v
 //////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// promotions <<<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// precision >>>>>>>>>>>>>>>>>>>>>>>>>>
-namespace impl {
+namespace internal {
 
 // adaptation from proposal P0870R2
 template<typename From, typename To>
 using require_no_narrowing
     = std::void_t<decltype(type_id_t<To[]>{std::declval<From>()})>;
 
-} // namespace impl
+} // namespace internal
 
 template<typename From, typename To, typename = void>
 struct is_narrowing : std::true_type {};
 
 template<typename From, typename To>
-struct is_narrowing<From, To, impl::require_no_narrowing<From, To>>
+struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
     : std::false_type {};
 
 //////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>

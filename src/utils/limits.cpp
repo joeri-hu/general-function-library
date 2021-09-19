@@ -17,13 +17,13 @@ constexpr auto conversion_truncates(From src) noexcept -> bool
 template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool {
     if constexpr (ts::is_narrowing_v<From, To>) {
-        return impl::is_out_of_range<From, To>(src);
+        return internal::is_out_of_range<From, To>(src);
     }
     return false;
 }
 
 //////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-namespace impl {
+namespace internal {
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
@@ -78,5 +78,5 @@ constexpr auto is_out_of_range(From) noexcept -> bool
 { return false; }
 
 //////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
-} // namespace impl
+} // namespace internal
 } // namespace gl

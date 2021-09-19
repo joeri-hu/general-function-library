@@ -18,7 +18,7 @@ template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool;
 
 //////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-namespace impl {
+namespace internal {
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
@@ -54,7 +54,7 @@ template<typename From, typename To,
 constexpr auto is_out_of_range(From) noexcept -> bool;
 
 //////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
-} // namespace impl
+} // namespace internal
 } // namespace gl
 
 #endif

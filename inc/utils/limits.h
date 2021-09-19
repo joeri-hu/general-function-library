@@ -8,7 +8,6 @@
 #include <type_traits>
 
 namespace gl {
-//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
     typename = ts::require<ts::is_integral_both<From, To>>>
@@ -17,7 +16,6 @@ constexpr auto conversion_truncates(From src) noexcept -> bool;
 template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool;
 
-//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 namespace internal {
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -57,4 +55,5 @@ constexpr auto is_out_of_range(From) noexcept -> bool;
 } // namespace internal
 } // namespace gl
 
+#include <utils/limits.inl>
 #endif

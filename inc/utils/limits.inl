@@ -8,7 +8,6 @@
 #include <type_traits>
 
 namespace gl {
-//////////////////////// interface >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To, typename>
 constexpr auto conversion_truncates(From src) noexcept -> bool
@@ -22,7 +21,6 @@ constexpr auto is_out_of_range(From src) noexcept -> bool {
     return false;
 }
 
-//////////////////////// interface <<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 namespace internal {
 //////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 

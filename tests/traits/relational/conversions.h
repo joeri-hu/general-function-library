@@ -157,7 +157,7 @@ static_assert(not is_promotable_neither_v<int, short, long, double>);
 static_assert(not is_promotable_neither_v<bool, int, long, double>);
 
 //////////////////////// promotions  <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision . >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// precision > >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_narrowing_v<std::int64_t, std::int32_t>);
 static_assert(is_narrowing_v<std::int64_t, std::int16_t>);
@@ -195,7 +195,7 @@ static_assert(not is_narrowing_v<std::uint32_t, std::uint32_t>);
 static_assert(not is_narrowing_v<std::uint32_t, std::uint64_t>);
 static_assert(not is_narrowing_v<std::uint64_t, std::uint64_t>);
 
-//////////////////////// precision . <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision < <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts::tests
 
 #endif

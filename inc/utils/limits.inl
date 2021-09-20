@@ -22,7 +22,7 @@ constexpr auto is_out_of_range(From src) noexcept -> bool {
 }
 
 namespace internal {
-//////////////////////// integral ..... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// integral >>>>> >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
     ts::require_t<ts::is_integral_both<From, To>>,
@@ -58,7 +58,7 @@ constexpr auto is_out_of_range(From src) noexcept -> bool {
     return src < From{};
 }
 
-//////////////////////// integral ..... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// integral <<<<< <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// floating point >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,

@@ -4,7 +4,7 @@
 #include <traits/relational/relationships.h>
 
 namespace ts::tests {
-//////////////////////// identity . >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// identity > >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_same_all_v<bool, bool, bool>);
 static_assert(is_same_all_v<char, char, char>);
@@ -40,7 +40,7 @@ static_assert(not is_same_neither_v<bool, int, char, double, int>);
 static_assert(not is_same_neither_v<bool, char, int, double, int>);
 static_assert(not is_same_neither_v<bool, char, double, int, int>);
 
-//////////////////////// identity . <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// identity < <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// conversion >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(common_type_matches_all_v<bool, bool, bool>);

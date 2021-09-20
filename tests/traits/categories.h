@@ -4,8 +4,8 @@
 #include <traits/categories.h>
 
 namespace ts::tests {
-//////////////////////// fundamental . >>>>>>>>>>>>>>>>>>>>>>>>
-//////////////////////// .. arithmetic >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// fundamental > >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// >> arithmetic >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_arithmetic_all_v<
     bool, char, short, int, long, long long,
@@ -23,14 +23,14 @@ static_assert(not is_arithmetic_either_v<void>);
 static_assert(is_arithmetic_neither_v<void>);
 static_assert(not is_arithmetic_neither_v<int>);
 
-//////////////////////// .. arithmetic <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// .. integral . >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// << arithmetic <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// >> integral > >>>>>>>>>>>>>>>>>>>>>>>>
 
 // note: add tests
 
-//////////////////////// .. integral . <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// fundamental . <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// templates ... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// << integral < <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// fundamental < <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// templates >>> >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename>
 struct template1 {};
@@ -64,7 +64,7 @@ static_assert(template_matches_v<template2, template2>);
 static_assert(not template_matches_v<template1, template2>);
 static_assert(not template_matches_v<template2, template1>);
 
-//////////////////////// templates ... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// templates <<< <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts::tests
 
 #endif

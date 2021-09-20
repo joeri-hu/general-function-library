@@ -9,7 +9,7 @@ template<typename B, typename T = void>
 using require = std::enable_if_t<B{}, T>;
 
 template<typename B, typename T = void>
-using require_not = require<std::negation<B, T>>;
+using require_not = require<std::negation<B>, T>;
 
 template<typename... Bs>
 using require_all = require<std::conjunction<Bs...>>;
@@ -37,7 +37,7 @@ template<typename B>
 using require_not_t = require_not<B, internal::tpl_type>;
 
 template<typename... Bs>
-using require_all_t = require<std::conjunction<Bs...>, T>;
+using require_all_t = require<std::conjunction<Bs...>, internal::tpl_type>;
 
 template<typename B1, typename B2>
 using require_both_t = require_both<B1, B2, internal::tpl_type>;

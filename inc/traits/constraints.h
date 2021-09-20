@@ -23,7 +23,7 @@ using require_either = require<std::disjunction<Bs...>>;
 template<typename... Bs>
 using require_neither = require_not<std::disjunction<Bs...>>;
 
-//////////////////////// types ............... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// types ................ >>>>>>>>>>>>>>>>>>>>>>>>
 namespace internal {
 
 using tpl_type = int;
@@ -48,7 +48,7 @@ using require_either_t = require<std::disjunction<Bs...>, internal::tpl_type>;
 template<typename... Bs>
 using require_neither_t = require_not<std::disjunction<Bs...>, internal::tpl_type>;
 
-//////////////////////// types ............... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// types ................ <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

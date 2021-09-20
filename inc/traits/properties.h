@@ -4,8 +4,8 @@
 #include <type_traits>
 
 namespace ts {
-//////////////////////// specifiers .......... >>>>>>>>>>>>>>>>>>>>>>>>
-//////////////////////// .. signed ........... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// specifiers ........... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. signed ............ >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct is_signed_all
@@ -23,7 +23,7 @@ template<typename... Ts>
 struct is_signed_neither
     : std::negation<is_signed_either<Ts...>> {};
 
-//////////////////////// ..... helpers ....... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ........ >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_signed_all_v
@@ -41,9 +41,9 @@ template<typename... Ts>
 inline constexpr auto is_signed_neither_v
     = bool{is_signed_neither<Ts...>{}};
 
-//////////////////////// ..... helpers ....... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// .. signed ........... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// .. unsigned ......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ........ <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. signed ............ <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. unsigned .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct is_unsigned_all
@@ -61,7 +61,7 @@ template<typename... Ts>
 struct is_unsigned_neither
     : std::negation<is_unsigned_either<Ts...>> {};
 
-//////////////////////// ..... helpers ....... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ........ >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_unsigned_all_v
@@ -79,9 +79,9 @@ template<typename... Ts>
 inline constexpr auto is_unsigned_neither_v
     = bool{is_unsigned_neither<Ts...>{}};
 
-//////////////////////// ..... helpers ....... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// .. unsigned ......... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// specifiers .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// ..... helpers ........ <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. unsigned .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// specifiers ........... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

@@ -4,7 +4,7 @@
 #include <type_traits>
 
 namespace ts {
-//////////////////////// identity ............ >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// identity ............. >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T, typename... Ts>
 struct is_same_all
@@ -24,7 +24,7 @@ template<typename... Ts>
 struct is_same_neither
     : std::negation<is_same_either<Ts...>> {};
 
-//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers ........... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T, typename... Ts>
 inline constexpr auto is_same_all_v
@@ -38,9 +38,9 @@ template<typename... Ts>
 inline constexpr auto is_same_neither_v
     = bool{is_same_neither<Ts...>{}};
 
-//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// identity ............ <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// conversion .......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers ........... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// identity ............. <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversion ........... >>>>>>>>>>>>>>>>>>>>>>>>
 namespace internal {
 
 template<typename T, typename... Ts>
@@ -77,7 +77,7 @@ template<typename T1, typename T2>
 struct common_type_matches_rhs
     : internal::common_type_matches<T2, T1, T2> {};
 
-//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers ........... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto common_type_matches_all_v
@@ -103,8 +103,8 @@ template<typename T1, typename T2>
 inline constexpr auto common_type_matches_rhs_v
     = bool{common_type_matches_rhs<T1, T2>{}};
 
-//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// conversion .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. helpers ........... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversion ........... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

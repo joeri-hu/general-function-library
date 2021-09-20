@@ -7,7 +7,7 @@
 #include <type_traits>
 
 namespace ts {
-//////////////////////// conversions >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// conversions ......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct is_converting_all
@@ -33,7 +33,7 @@ template<typename T1, typename T2>
 struct is_converting_rhs
     : std::negation<common_type_matches_rhs<T1, T2>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_converting_all_v
@@ -59,9 +59,9 @@ template<typename T1, typename T2>
 inline constexpr auto is_converting_rhs_v
     = bool{is_converting_rhs<T1, T2>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// promotions >>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// conversions ......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// promotions .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
 struct is_promotable
@@ -83,7 +83,7 @@ template<typename... Ts>
 struct is_promotable_neither
     : std::negation<is_promotable_either<Ts...>> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename T>
 inline constexpr auto is_promotable_v
@@ -105,9 +105,9 @@ template<typename... Ts>
 inline constexpr auto is_promotable_neither_v
     = bool{is_promotable_neither<Ts...>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// promotions <<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision >>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// promotions .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision ........... >>>>>>>>>>>>>>>>>>>>>>>>
 namespace internal {
 
 // adaptation from proposal P0870R2
@@ -124,13 +124,13 @@ template<typename From, typename To>
 struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
     : std::false_type {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To>
 inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision <<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision ........... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

@@ -20,11 +20,11 @@ static_assert(std::is_same_v<require_either<
 static_assert(std::is_same_v<require_neither<
     std::false_type, std::false_type, std::false_type>, void>);
 
-//////////////////////// types >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// types ............... >>>>>>>>>>>>>>>>>>>>>>>>
 
 // note: add more tests
 
-//////////////////////// types <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// types ............... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts::tests
 
 #endif

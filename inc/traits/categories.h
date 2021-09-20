@@ -4,8 +4,8 @@
 #include <type_traits>
 
 namespace ts {
-//////////////////////// fundamental >>>>>>>>>>>>>>>>>>>>>>>>
-//////////////////////// arithmetic >>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// fundamental ......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. arithmetic ....... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct is_arithmetic_all
@@ -23,7 +23,7 @@ template<typename... Ts>
 struct is_arithmetic_neither
     : std::negation<is_arithmetic_either<Ts>...> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ....... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_arithmetic_all_v
@@ -41,9 +41,9 @@ template<typename... Ts>
 inline constexpr auto is_arithmetic_neither_v
     = bool{is_arithmetic_neither<Ts...>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// arithmetic <<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ....... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. arithmetic ....... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. integral ......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 struct is_integral_all
@@ -61,7 +61,7 @@ template<typename... Ts>
 struct is_integral_neither
     : std::negation<is_integral_either<Ts>...> {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ....... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename... Ts>
 inline constexpr auto is_integral_all_v
@@ -79,10 +79,10 @@ template<typename... Ts>
 inline constexpr auto is_integral_neither_v
     = bool{is_integral_neither<Ts...>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// integral <<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// fundamental <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// templates >>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// ..... helpers ....... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. integral ......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// fundamental ......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// templates ........... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<template<typename...> typename, typename...>
 struct is_template_of : std::false_type {};
@@ -102,7 +102,7 @@ struct template_matches : std::false_type {};
 template<template<typename...> typename T>
 struct template_matches<T, T> : std::true_type {};
 
-//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// .. helpers .......... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<template<typename...> typename T, typename S>
 inline constexpr auto is_template_of_v
@@ -112,8 +112,8 @@ template<template<typename...> typename... Ts>
 inline constexpr auto template_matches_v
     = bool{template_matches<Ts...>{}};
 
-//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// templates <<<<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// .. helpers .......... <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// templates ........... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

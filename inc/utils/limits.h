@@ -17,7 +17,7 @@ template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool;
 
 namespace internal {
-//////////////////////// integral >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// integral ............ >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
     ts::require_t<ts::is_integral_both<From, To>> = 0,
@@ -38,8 +38,8 @@ template<typename From, typename To,
     ts::require_t<std::is_unsigned<To>> = 0>
 constexpr auto is_out_of_range(From src) noexcept -> bool;
 
-//////////////////////// integral <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// floating point >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// integral ............ <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// floating point ...... >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To,
     ts::require_t<std::is_floating_point<From>> = 0,
@@ -51,7 +51,7 @@ template<typename From, typename To,
     ts::require_t<std::is_floating_point<To>> = 0>
 constexpr auto is_out_of_range(From) noexcept -> bool;
 
-//////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// floating point ...... <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace internal
 } // namespace gl
 

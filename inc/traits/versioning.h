@@ -19,7 +19,7 @@ struct std_matches : std::integral_constant<bool,
     V != std_version::unknown and
     V == std_version::current> {};
 
-//////////////////////// helpers .............. >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// helpers >>>>>>>>>>>>>>>>>>>>>>>>
 
 using is_cpp11_compliant = std_matches<std_version::cpp11>;
 using is_cpp14_compliant = std_matches<std_version::cpp14>;
@@ -38,7 +38,7 @@ constexpr auto is_cpp17_compliant_v() noexcept -> bool
 constexpr auto is_cpp20_compliant_v() noexcept -> bool
 { return is_cpp20_compliant{}; }
 
-//////////////////////// helpers .............. <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// helpers <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

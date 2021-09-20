@@ -6,7 +6,7 @@
 #include <cstdint>
 
 namespace ts::tests {
-//////////////////////// conversions .......... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// conversions >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_converting_all_v<bool, bool, char>);
 static_assert(is_converting_all_v<char, char, short>);
@@ -101,8 +101,8 @@ static_assert(not is_converting_rhs_v<int, long>);
 static_assert(not is_converting_rhs_v<int, double>);
 static_assert(not is_converting_rhs_v<long, double>);
 
-//////////////////////// conversions .......... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// promotions ........... >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// conversions <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// promotions  >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_promotable_v<bool>);
 static_assert(is_promotable_v<char>);
@@ -156,8 +156,8 @@ static_assert(not is_promotable_neither_v<int, long, char, double>);
 static_assert(not is_promotable_neither_v<int, short, long, double>);
 static_assert(not is_promotable_neither_v<bool, int, long, double>);
 
-//////////////////////// promotions ........... <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision ............ >>>>>>>>>>>>>>>>>>>>>>>>
+//////////////////////// promotions  <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision . >>>>>>>>>>>>>>>>>>>>>>>>
 
 static_assert(is_narrowing_v<std::int64_t, std::int32_t>);
 static_assert(is_narrowing_v<std::int64_t, std::int16_t>);
@@ -195,7 +195,7 @@ static_assert(not is_narrowing_v<std::uint32_t, std::uint32_t>);
 static_assert(not is_narrowing_v<std::uint32_t, std::uint64_t>);
 static_assert(not is_narrowing_v<std::uint64_t, std::uint64_t>);
 
-//////////////////////// precision ............ <<<<<<<<<<<<<<<<<<<<<<<<
+//////////////////////// precision . <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts::tests
 
 #endif

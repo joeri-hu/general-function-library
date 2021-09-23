@@ -2,7 +2,6 @@
 #define GL_TS_TRAITS_RELATIONAL_CONVERSIONS_H
 
 #include <traits/relational/relationships.h>
-#include <traits/transformations.h>
 
 #include <type_traits>
 
@@ -107,30 +106,6 @@ inline constexpr auto is_promotable_neither_v
 
 //////////////////////// << helpers  <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// promotions  <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision > >>>>>>>>>>>>>>>>>>>>>>>>
-namespace internal {
-
-// adaptation from proposal P0870R2
-template<typename From, typename To>
-using require_no_narrowing
-    = std::void_t<decltype(type_id_t<To[]>{std::declval<From>()})>;
-
-} // namespace internal
-
-template<typename From, typename To, typename = void>
-struct is_narrowing : std::true_type {};
-
-template<typename From, typename To>
-struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
-    : std::false_type {};
-
-//////////////////////// >> helpers  >>>>>>>>>>>>>>>>>>>>>>>>
-
-template<typename From, typename To>
-inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
-
-//////////////////////// << helpers  <<<<<<<<<<<<<<<<<<<<<<<<
-//////////////////////// precision < <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace ts
 
 #endif

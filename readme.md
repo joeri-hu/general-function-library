@@ -9,4 +9,4 @@
   C++11 and onwards.
 
   Expecting to eventually diverge this library into newer C++ versions.
-<h3>To-do</h3><ul><li>Add missing tests of 'traits/properties'</li><li>Add more tests to incomplete set of 'traits/constraints'</li><li>Add tests of 'utils/limits'</li><li>Add tests of 'traits/transformations -- signatures'</li><li>Add usage examples</li></ul></pre>
+<h3>To-do</h3><ul><li>Add missing tests of 'traits/properties'</li><li>Add more tests to incomplete set of 'traits/constraints'</li><li>Add tests of 'utils/limits'</li><li>Add tests of 'traits/transformations -- signatures'</li><li>Add tests of 'traits/limits'</li><li>Add usage examples</li></ul></pre>

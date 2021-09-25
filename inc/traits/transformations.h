@@ -30,7 +30,7 @@ struct compnd_op;
 
 template<typename T1, typename T2>
 struct compnd_op<T1, T2>
-{ using type = T1 (&)(T1, T2); };
+{ using type = T1& (&)(T1&, T2) noexcept; };
 
 template<typename... Ts>
 using compnd_op_t = typename compnd_op<Ts...>::type;

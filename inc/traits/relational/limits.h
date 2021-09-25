@@ -27,7 +27,8 @@ struct is_narrowing<From, To, internal::require_no_narrowing<From, To>>
 //////////////////////// >> helpers >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To>
-inline constexpr auto is_narrowing_v = bool{is_narrowing<From, To>{}};
+inline constexpr auto is_narrowing_v
+    = bool{is_narrowing<From, To>{}};
 
 //////////////////////// << helpers <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// precision  <<<<<<<<<<<<<<<<<<<<<<<<
@@ -44,7 +45,8 @@ struct is_within_range
 //////////////////////// >> helpers  >>>>>>>>>>>>>>>>>>>>>>>>
 
 template<typename From, typename To>
-inline constexpr auto is_within_range_v = bool{is_within_range<From, To>{}};
+inline constexpr auto is_within_range_v
+    = bool{is_within_range<From, To>{}};
 
 //////////////////////// << helpers  <<<<<<<<<<<<<<<<<<<<<<<<
 //////////////////////// range <<<<< <<<<<<<<<<<<<<<<<<<<<<<<

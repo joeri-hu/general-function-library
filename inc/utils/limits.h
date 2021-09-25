@@ -46,14 +46,9 @@ template<typename From, typename To,
     ts::require_t<std::is_arithmetic<To>> = 0>
 constexpr auto is_out_of_range(From src) noexcept -> bool;
 
-template<typename From, typename To,
-    ts::require_t<std::is_integral<From>> = 0,
-    ts::require_t<std::is_floating_point<To>> = 0>
-constexpr auto is_out_of_range(From) noexcept -> bool;
-
 //////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace internal
 } // namespace gl
 
-#include <utils/limits.inl>
+#include <utils/limits.tcc>
 #endif

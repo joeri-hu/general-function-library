@@ -2,7 +2,7 @@
 #include <traits/categories.h>
 #include <traits/constraints.h>
 #include <traits/properties.h>
-#include <traits/relational/conversions.h>
+#include <traits/relational/limits.h>
 
 #include <limits>
 #include <type_traits>
@@ -15,10 +15,10 @@ constexpr auto conversion_truncates(From src) noexcept -> bool
 
 template<typename From, typename To>
 constexpr auto is_out_of_range(From src) noexcept -> bool {
-    if constexpr (ts::is_narrowing_v<From, To>) {
-        return internal::is_out_of_range<From, To>(src);
+    if constexpr (ts::is_within_range_v<From, To>) {
+        return false;
     }
-    return false;
+    return internal::is_out_of_range<From, To>(src);
 }
 
 namespace internal {
@@ -68,12 +68,6 @@ constexpr auto is_out_of_range(From src) noexcept -> bool {
     return src < static_cast<From>(std::numeric_limits<To>::lowest())
         or src > static_cast<From>(std::numeric_limits<To>::max());
 }
-
-template<typename From, typename To,
-    ts::require_t<std::is_integral<From>>,
-    ts::require_t<std::is_floating_point<To>>>
-constexpr auto is_out_of_range(From) noexcept -> bool
-{ return false; }
 
 //////////////////////// floating point <<<<<<<<<<<<<<<<<<<<<<<<
 } // namespace internal
